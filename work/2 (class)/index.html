@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 100vw;
+            height: 100vh;
+            background-color: aqua;
+            margin: auto;
+            /* its a grid*/
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows:repeat(5, 1fr); ;
+        }
+        .red {
+            background-color: red;
+            grid-column-start: 1;
+            grid-column-end: 6;
+        }
+        .blue {
+            background-color: blue;
+            grid-row-start: 2;
+            grid-row-end: 6;
+        }
+        .green {
+            background-color: green;
+        }
+        .yellow {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="red"></div>
+        <div class="green"></div>
+        <div class="blue"></div>
+        <div class="yellow"></div>
+    </div>
+</body>
+</html>
+
