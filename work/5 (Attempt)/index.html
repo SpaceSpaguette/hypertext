@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,35 +13,57 @@
             position: relative;
         }
 
+        /* Solar System Container */
+        .solar-system {
+            position: relative;
+            width: 600px;
+            height: 600px;
+        }
 
+        /* Sun Styles */
+        .sun {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(to right, #a1866d, #ffe600);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(1.02);
+            animation: pulse 2s infinite alternate;
+        }
+
+        /* Orbit Styles */
         .orbit {
             position: absolute;
             top: 50%;
             left: 50%;
             border-radius: 50%;
-            transform: translate(-50%, -50%) rotate(45deg);
-            animation: rotate 10s linear infinite;
+            transform: translate(-50%, -50%);
+            animation: orbit 10s linear infinite;
         }
 
+        /* Planet Styles (With shadow) */
         .planet {
             position: absolute;
             top: -10px;
             left: 50%;
-            background: radial-gradient(circle, #00f, #0077ff);
             border-radius: 50%;
             transform: translate(-50%, -50%);
+            box-shadow:inset 0px 5px 8px 3px rgba(0, 0, 0, 0.7); /* Outer shadow */
+            animation: rotate 10s linear infinite;
         }
 
+        /* Specific Planet Styles */
         .orbit.mercury {
             width: 150px;
             height: 120px;
             animation-duration: 4s;
         }
-
         .planet.mercury {
             width: 6px;
             height: 6px;
-            background: radial-gradient(circle, #aaa, #888);
+            background-color: #aaa;
         }
 
         .orbit.venus {
@@ -50,11 +71,10 @@
             height: 170px;
             animation-duration: 6s;
         }
-
         .planet.venus {
             width: 14px;
             height: 14px;
-            background: radial-gradient(circle, #ffb74d, #ff8a00);
+            background-color: #ffb74d;
         }
 
         .orbit.earth {
@@ -62,28 +82,21 @@
             height: 220px;
             animation-duration: 8s;
         }
-
         .planet.earth {
             width: 15px;
             height: 15px;
-            background: radial-gradient(circle, #2e86de, #1c56a5);
-            position: relative;
+            background-color: #2e86de;
         }
 
         .orbit.moon {
             width: 5px;
             height: 5px;
             animation-duration: 2s;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
         }
-
         .planet.moon {
             width: 5px;
             height: 5px;
-            background: radial-gradient(circle, #ccc, #999);
+            background-color: #ccc;
         }
 
         .orbit.mars {
@@ -91,43 +104,24 @@
             height: 300px;
             animation-duration: 10s;
         }
+        .planet.mars {
+            width: 10px;
+            height: 10px;
+            background-color: #e7723c;
+        }
 
         .orbit.jupiter {
             width: 450px;
             height: 400px;
             animation-duration: 12s;
         }
-
         .planet.jupiter {
             width: 20px;
             height: 20px;
-            background: radial-gradient(circle, #e7723c, #c0552b);
+            background-color: #e7723c;
         }
 
-        .solar-system {
-            position: relative;
-            width: 600px;
-            height: 600px;
-        }
-
-        .sun {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 70px;
-            height: 70px;
-            background: radial-gradient(circle, #a1866d, #ffe600);
-            border-radius: 50%;
-            transform: translate(-50%, -50%) scale(1.02);
-            animation: pulse 2s infinite alternate;
-        }
-
-        .planet.mars {
-            width: 10px;
-            height: 10px;
-            background: radial-gradient(circle, #e7723c, #c0552b);
-        }
-
+        /* Keyframes */
         @keyframes rotate {
             from {
                 transform: translate(-50%, -50%) rotate(0deg);
@@ -136,7 +130,25 @@
                 transform: translate(-50%, -50%) rotate(360deg);
             }
         }
+        @keyframes orbit {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
 
+        @keyframes pulse {
+            from {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            to {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        /* Star Styles */
         .star {
             width: 2px;
             height: 2px;
@@ -156,42 +168,36 @@
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
-        function random(min, max) {
-            return Math.random() * (max - min) + min;
-        }
-
-        function randomizeStartupLocation() {
-            const elements = document.querySelectorAll(".star");
-            elements.forEach(element => {
-                element.style.top = `${random(0, 100)}%`;
-                element.style.left = `${random(0, 100)}%`;
-            });
-        }
-
-        window.onload = randomizeStartupLocation;
-    </script>
+    <title>Solar System</title>
 </head>
 <body>
     <div class="stars-container">
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
-        <div class="star"></div>
+        <div class="star" style="top: 2.36%; left: 14.53%"></div>
+        <div class="star" style="top: 63.54%; left: 35.16%"></div>
+        <div class="star" style="top: 48.45%; left: 70.32%"></div>
+        <div class="star" style="top: 34.09%; left: 53.77%"></div>
+        <div class="star" style="top: 71.51%; left: 44.23%"></div>
+        <div class="star" style="top: 51.46%; left: 23.21%"></div>
+        <div class="star" style="top: 12.15%; left: 66.01%"></div>
+        <div class="star" style="top: 25.87%; left: 41.51%"></div>
+        <div class="star" style="top: 87.85%; left: 19.19%"></div>
+        <div class="star" style="top: 64.15%; left: 80.35%"></div>
+        <div class="star" style="top: 42.15%; left: 19.19%"></div>
+        <div class="star" style="top: 19.23%; left: 80.35%"></div>
+        <div class="star" style="top: 84.62%; left: 53.77%"></div>
     </div>
+    
     <div class="solar-system">
         <div class="sun"></div>
+        
         <div class="orbit mercury">
             <div class="planet mercury"></div>
         </div>
+        
         <div class="orbit venus">
             <div class="planet venus"></div>
         </div>
+        
         <div class="orbit earth">
             <div class="planet earth">
                 <div class="orbit moon">
@@ -199,12 +205,15 @@
                 </div>
             </div>
         </div>
+        
         <div class="orbit mars">
             <div class="planet mars"></div>
         </div>
+        
         <div class="orbit jupiter">
             <div class="planet jupiter"></div>
         </div>
     </div>
 </body>
 </html>
+
