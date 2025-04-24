@@ -1,0 +1,11 @@
+table {
+    width: 500px;
+}
+tr {
+    background-color: blue;
+
+}
+td {
+    background-color: bisque;
+    margin-left: 20px;
+}
